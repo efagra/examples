@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+    font-size: 24pt;
+    border: 2px solid #6b766f;
+    background-color: #93a299;
+    color: white;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 5px;
+}
+h2 {
+    border-bottom: 4px dotted red;
+    font-size: 18pt;
+}
+table {
+    color: white;
+    background-color: grey;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+strong {
+    color: navy;
+    font-style: italic;
+}
+em {
+    color: green;
+    text-decoration: underline;
+}
+a {
+    font-family: Comic Sans MS;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    color: blue;
+}
+li {
+    color: purple;
+}
+p {
+    font-style: italic;
+    font-size: 12pt;
+    color: #396;
+    background-color: #e0e0e0;
+}
+
