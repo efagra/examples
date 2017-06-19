@@ -1,0 +1,18 @@
+rockpaperscissors
+=================
+* extend to sheldon's version rock paper scissors lizard spock
+* extend to greek version petra psalidi moluvi xarti
+* add counter for ties
+* add final winner result
+* append results to history score file
+
+hangman
+=======
+* create a separate file and import the words like the random module
+* maybe align the rules implementation with the rockpaperscissors
+  - split the game function to word selection and results
+* maybe increase the word count
+* create different, selectable word categories
+* let people guess the full word
+
+
