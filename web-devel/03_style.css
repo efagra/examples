@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+strong {
+    font-weight: bold;
+}
+em {
+    font-style: italic;
+}
+span {
+    color: rgb(0,112,192);
+    padding-right: 20px;
+    background-image: url('heart.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+table {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+td {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}
+div {
+    text-align: left;
+}
