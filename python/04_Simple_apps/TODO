@@ -15,4 +15,16 @@ hangman
 * create different, selectable word categories
 * let people guess the full word
 
+pokerdice
+=========
+* find duplicate variables
+* find out the rules about first round if it is obligatory to change dice
+* add a computer player
+* simple computer roll
+* add a limited AI for roll
+* create a rule set that requires a certain hand or higher
+* make it a two player game
+* modify for three rolls
+* ask about game rules in the beginning and save to file
+
 
