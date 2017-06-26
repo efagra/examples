@@ -1,0 +1,59 @@
+p, .red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+p.center {
+    text-align: center;
+}
+
+p.center.important {
+    text-align: center;
+    font-size: 24pt;
+}
+
+li.animal {
+    border: 1px solid blue;
+}
+
+#cocktail li {
+    border: 1px solid red;
+}
+
+a:hover {
+    background-color: yellow;
+}
+%:link :visited :active
+%border: 1px solid black; -> width style color
+%margin: 1px 1px 1px 1px; -> top left bottom right 
+%margin: 1px 1px 1px; -> top leftright bottom
+%margin: 1px 1px; -> topbottom leftright
+%margin: 1px; -> all
+%padding: 1px 2px 3px;
+%border-width: 1px 2px;
+%border-width: 1px 4px 8px 16px;
+%border-style: solid dotted dashed none;
+%border-color: red green blue black;
+%font: bold normal italic 24px Verdana, sans-serif; -> [font-weight font-variant font-style] font-size font-family
+%background-image: url('foo.png')
+%background-repeat: repeat;
+%background-repeat: repeat-y;
+%background-repeat: repeat-x;
+%background-repeat: no-repeat;
+%background-position: [left|center|right] [top|center|bottom];
+%background-position: 20px 30px;
+%line-height: normal;
+%line-height: 20pt;
+%letter-spacing: normal;
+%letter-spacing: 3px;
+%word-spacing: normal;
+%word-spacing: 10px;
+%list-style-type: disc|circle|square|decimal|lower-roman|upper-roman|lower-greek|lower-latin|armenian|none;
+%list-style-position: inside|outside;
+%list-style-image: url('sqpurple.gif');
+%list-style: (list-style-type) (list-style-image) (list-style-position)
+%border-collapse: separate|collapse; -> for tables, default is separate
+%cursor: auto|pointer|crosshair|move|wait|help|progress|default
