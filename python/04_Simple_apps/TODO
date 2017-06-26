@@ -27,4 +27,8 @@ pokerdice
 * modify for three rolls
 * ask about game rules in the beginning and save to file
 
+rps
+===
+* modify to be able to run as standalone script
+
 
