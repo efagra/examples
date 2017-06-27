@@ -1,83 +1,11 @@
 #!/usr/bin/env python2
 
+from Tkinter import *
+from ttk import *
 import random
 from itertools import groupby
 
-nine  = 1
-ten   = 2
-jack  = 3
-queen = 4
-king  = 5
-ace   = 6
-
-names = { nine: "9", ten: "10", jack: "J", queen: "Q", king: "K", ace: "A" }
-
-player_score = 0
-computer_score = 0
-
-def start():
-    print "Let's play a game of Linux Poker Dice."
-    while game():
-        pass
-    scores()
-
-def game():
-    print "The computer will help you throw your 5 dice"
-    throws()
-    return play_again()
-
-def throws():
-    roll_number = 5
-    dice = roll(roll_number)
-    dice.sort()
-    for i in range(len(dice)):
-        print "Dice",i+1,":",names[dice[i]]
-
-    result = hand(dice)
-    print "You currently have",result
-
-    while True:
-        rerolls = input("How many dice do you want to throw again? ")
-        try:
-            if rerolls in (1,2,3,4,5):
-                break
-        except ValueError:
-            pass
-        print "Ooops! I didn't understand that. Please enter 1, 2, 3, 4 or 5."
-
-    if rerolls == 0:
-        print "You finish with", result
-    else:
-        roll_number = rerolls
-        dice_rerolls = roll(roll_number)
-        dice_changes = range(rerolls)
-        print "Enter the number of a dice to reroll: "
-        iterations = 0
-        while iterations < rerolls:
-            iterations = iterations + 1
-            while True:
-                selection = input("")
-                try:
-                    if selection in (1,2,3,4,5):
-                        break
-                except ValueError:
-                    pass
-                print "Ooops! i didn't understand that. Please enter 1, 2, 3, 4 or 5."
-            dice_changes[iterations-1] = selection-1
-            print "You have changed dice", selection
-
-        iterations = 0
-        while iterations < rerolls:
-            iterations = iterations + 1
-            replacement = dice_rerolls[iterations-1]
-            dice[dice_changes[iterations-1]] = replacement
-
-        dice.sort()
-        for i in range(len(dice)):
-            print "Dice",i+1,":",names[dice[i]]
-
-        result = hand(dice)
-        print "You finish with", result
+dice = 0
 
 def roll(roll_number):
     numbers = range(1,7)
@@ -113,18 +41,109 @@ def hand(dice):
     else:
         return "a high card."
 
-def play_again():
-    answer = raw_input("Would you like to play again? y/n: ")
-    if answer in ("y", "Y", "yes", "Yes", "Of course!"):
-        return answer
-    else:
-        print "Thank you very much for playing our game. See you next time!"
+def gui():
+    global dice
+    dice = roll(5)
+    dice.sort()
 
-def scores():
-    global player_score, computer_score
-    print "HIGH SCORES"
-    print "Player: ", player_score
-    print "Computer: ", computer_score
+    nine  = 1
+    ten   = 2
+    jack  = 3
+    queen = 4
+    king  = 5
+    ace   = 6
+
+    names = { nine: "9", ten: "10", jack: "J", queen: "Q", king: "K", ace: "A" }
+
+    result = "You have " + hand(dice)
+
+    def game():
+        throws()
+
+    def throws():
+        global dice
+        dice1_check = dice1.get()
+        dice2_check = dice2.get()
+        dice3_check = dice3.get()
+        dice4_check = dice4.get()
+        dice5_check = dice5.get()
+        dice_rerolls = [dice1_check, dice2_check, dice3_check, dice4_check, dice5_check]
+
+        for i in range(len(dice_rerolls)):
+            if 0 in dice_rerolls:
+                dice_rerolls.remove(0)
+
+        if len(dice_rerolls) == 0:
+            result = "You finish with " + hand(dice)
+            hand_output.set(result)
+        else:
+            roll_number = len(dice_rerolls)
+            number_rerolls = roll(roll_number)
+            dice_changes = range(len(dice_rerolls))
+            iterations = 0
+            while iterations < roll_number:
+                iterations = iterations + 1
+                dice_changes[iterations-1] = number_rerolls[iterations-1]
+            iterations = 0
+            while iterations < roll_number:
+                iterations = iterations + 1
+                replacement = number_rerolls[iterations-1]
+                dice[dice_changes[iterations-1]] = replacement
+            dice.sort()
+            new_dice_list = [0,0,0,0,0]
+            for i in range(len(dice)):
+                new_dice_list[i] = names[dice[i]]
+            final_dice = " ".join(new_dice_list)
+            dice_output.set(final_dice)
+            final_result = "You finish with " + hand(dice)
+            hand_output.set(final_result)
+
+    def reset_game():
+        global dice
+        dice = roll(5)
+        dice.sort()
+        for i in range(len(dice)):
+            empty_dice[i] = names[dice[i]]
+        first_dice = " ".join(empty_dice)
+        dice_output.set(first_dice)
+        result = "You have " + hand(dice)
+        hand_output.set(result)
+
+    pd_window = Toplevel()
+    pd_window.title("Poker Dice")
+    dice_output = StringVar()
+    empty_dice = [0,0,0,0,0]
+    for i in range(len(dice)):
+        empty_dice[i] = names[dice[i]]
+    first_dice = " ".join(empty_dice)
+    dice_output.set(first_dice)
+    hand_output = StringVar()
+    hand_output.set(result)
+    dice1 = IntVar()
+    dice2 = IntVar()
+    dice3 = IntVar()
+    dice4 = IntVar()
+    dice5 = IntVar()
+    result_set = StringVar()
+    player_score = IntVar()
+    computer_score = IntVar()
+
+    pd_frame = Frame(pd_window, padding = '3 3 12 12', width = 300)
+    pd_frame.grid(column = 0, row = 0, sticky = (N,W,E,S))
+    pd_frame.columnconfigure(0, weight = 1)
+    pd_frame.rowconfigure(0, weight = 1)
+    Label(pd_frame, text='Dice').grid(column=3, row=1)
+    Label(pd_frame, textvariable = dice_output).grid(column = 3, row = 2)
+    Label(pd_frame, textvariable = hand_output).grid(column = 3, row = 3)
+
+    Label(pd_frame, text='Dice to reroll?').grid(column = 3, row = 4)
+    reroll1 = Checkbutton(pd_frame, text = "1", variable = dice1, onvalue = 1, offvalue = 0).grid(column = 1, row = 5)
+    reroll2 = Checkbutton(pd_frame, text = "2", variable = dice2, onvalue = 2, offvalue = 0).grid(column = 2, row = 5)
+    reroll3 = Checkbutton(pd_frame, text = "3", variable = dice3, onvalue = 3, offvalue = 0).grid(column = 3, row = 5)
+    reroll4 = Checkbutton(pd_frame, text = "4", variable = dice4, onvalue = 4, offvalue = 0).grid(column = 4, row = 5)
+    reroll5 = Checkbutton(pd_frame, text = "5", variable = dice5, onvalue = 5, offvalue = 0).grid(column = 5, row = 5)
+    pd_reroll_button = Button(pd_frame, text = "Reroll", command = game).grid(column = 3, row = 6)
+    replay_button = Button(pd_frame, text = "Reset", command = reset_game).grid(column = 3, row = 7)
 
 if __name__ == '__main__':
-    start()
+    gui()

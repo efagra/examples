@@ -23,10 +23,10 @@ intro.pack(side = TOP)
 rps_button = Button(mainframe, text = "Rock, Paper, Scissors", command = rps.gui)
 rps_button.pack()
 
-hm_button = Button(mainframe, text = "Hangman", command = hm.start)
+hm_button = Button(mainframe, text = "Hangman", command = hm.gui)
 hm_button.pack()
 
-pd_button = Button(mainframe, text = "Poker Dice", command = pd.start)
+pd_button = Button(mainframe, text = "Poker Dice", command = pd.gui)
 pd_button.pack()
 
 exit_button = Button(mainframe, text = "Quit", command = root.destroy)

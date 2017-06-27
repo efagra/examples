@@ -39,5 +39,12 @@ hm
 * modify to enter the whole word
 * modify to reset the letter entered
 
-
+pd
+==
+* find the bug in the list when you click reroll
+* choose a random new selection of dice
+* make it two player
+* modify the games not to open in a separate window but in the same one
+ - replace the labels and buttons of the original interface
+ - add a quit button that lets you go back to the main page
 
