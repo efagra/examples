@@ -31,4 +31,13 @@ rps
 ===
 * modify to be able to run as standalone script
 
+hm
+==
+* find the bug in the gui
+ - Why the hanger isn't displayed in the beginning
+ - Why the hangman isn't displayed properly
+* modify to enter the whole word
+* modify to reset the letter entered
+
+
 
