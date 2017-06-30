@@ -1,0 +1,24 @@
+#header {
+    height: 50px;
+    background: red;
+}
+#middle {
+    height: 1000px;
+    background: orange;
+}
+#left {
+    width: 20%;
+    background: green;
+    height: 1000px;
+    float: left;
+}
+#right {
+    width: 20%;
+    background: blue;
+    height: 1000px;
+    float: right;
+}
+p {
+    float: right; %left|none
+    %clear: left|right|both|none;
+}

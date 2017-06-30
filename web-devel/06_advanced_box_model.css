@@ -1,0 +1,15 @@
+body {
+    width: 1000px;
+    height: 600px;
+    border: 1px solid black;
+}
+div { 
+    width: 50%;
+    height: 50%;
+    background: red;
+    %margin: auto;
+    %min-width
+    %max-width
+    %min-height
+    %max-height
+}
