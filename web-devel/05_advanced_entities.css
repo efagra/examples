@@ -1,0 +1,9 @@
+body {
+    background-color: #432421;
+    text-align: center;
+}
+table {
+    position: relative;
+    left: 46%;
+    border: 5px solid black;
+}
